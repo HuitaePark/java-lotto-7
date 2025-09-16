@@ -32,7 +32,7 @@ public class LottoController {
 
     private Lottos giveToLottoCashier(PurchaseAmount purchaseAmount){
         LottoCashier lottoCashier = new LottoCashier(purchaseAmount);
-        reportLottoCount(lottoCashier.calculateLottoCount());
+        reportLottoCount(lottoCashier.getTicketCount());
         return lottoCashier.provideLottos();
     }
 

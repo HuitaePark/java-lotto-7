@@ -3,16 +3,22 @@ package lotto.domain;
 public class LottoCashier {
 
     private final PurchaseAmount purchaseAmount;
+    private int ticketCount = 0;
 
     public LottoCashier(PurchaseAmount purchaseAmount) {
         this.purchaseAmount = purchaseAmount;
+        this.ticketCount = calculateLottoCount();
+    }
+
+    public int getTicketCount() {
+        return ticketCount;
     }
 
     public Lottos provideLottos(){
         return getLotto();
     }
 
-    public int calculateLottoCount(){
+    private int calculateLottoCount(){
         int amount = countPurchaseAmount(this.purchaseAmount);
         return amount/1000;
     }
