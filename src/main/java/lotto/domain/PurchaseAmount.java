@@ -4,7 +4,8 @@ public class PurchaseAmount {
 
     private final int amount;
 
-    public PurchaseAmount(int amount) {
+    public PurchaseAmount(String element) {
+        int amount = parseToInt(element);
         this.amount = amount;
     }
 
@@ -12,4 +13,7 @@ public class PurchaseAmount {
         return amount;
     }
 
+    private int parseToInt(String element){
+        return Integer.parseInt(element);
+    }
 }
