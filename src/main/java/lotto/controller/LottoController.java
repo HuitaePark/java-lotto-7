@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.domain.LottoCashier;
 import lotto.domain.PurchaseAmount;
 import lotto.global.util.InputPaser;
 import lotto.ui.InputHandler;
@@ -18,5 +19,14 @@ public class LottoController {
     public void startLottery(){
         String input = inputHandler.inputText();
         PurchaseAmount purchaseAmount = InputPaser.toPurchaseAmount(input);
+        giveLottoCashier(purchaseAmount);
+    }
+    private void giveLottoCashier(PurchaseAmount purchaseAmount){
+        LottoCashier lottoCashier = new LottoCashier(purchaseAmount);
+        int lottoCount = lottoCashier.calculateLottoCount();
+        reportLottoCount(lottoCount);
+    }
+    private void reportLottoCount(int lottoCount){
+        outputView.printLottoCount(lottoCount);
     }
 }
