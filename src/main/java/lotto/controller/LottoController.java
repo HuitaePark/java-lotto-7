@@ -8,11 +8,9 @@ import lotto.ui.OutputView;
 public class LottoController {
 
     private final InputHandler inputHandler;
-    private final OutputView outputView;
 
-    public LottoController(InputHandler inputHandler, OutputView outputView) {
+    public LottoController(InputHandler inputHandler) {
         this.inputHandler = inputHandler;
-        this.outputView = outputView;
     }
 
     public void startLottery(){
@@ -26,6 +24,6 @@ public class LottoController {
         reportLottoCount(lottoCount);
     }
     private void reportLottoCount(int lottoCount){
-        outputView.printLottoCount(lottoCount);
+        OutputView.printLottoCount(lottoCount);
     }
 }
