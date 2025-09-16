@@ -5,9 +5,13 @@ public class LottoCashier {
     private final PurchaseAmount purchaseAmount;
     private int ticketCount = 0;
 
-    public LottoCashier(PurchaseAmount purchaseAmount) {
+    private LottoCashier(PurchaseAmount purchaseAmount) {
         this.purchaseAmount = purchaseAmount;
         this.ticketCount = calculateLottoCount();
+    }
+
+    public static LottoCashier forPurchaseAmount(PurchaseAmount purchaseAmount){
+        return new LottoCashier(purchaseAmount);
     }
 
     public int getTicketCount() {

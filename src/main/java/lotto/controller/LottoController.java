@@ -22,18 +22,15 @@ public class LottoController {
 
         String input = inputHandler.inputText();
         PurchaseAmount purchaseAmount = new PurchaseAmount(input);
-        Lottos lottos = giveToLottoCashier(purchaseAmount);
+        LottoCashier lottoCashier = LottoCashier.forPurchaseAmount(purchaseAmount);
+        reportLottoCount(lottoCashier.getTicketCount());
+
+        Lottos lottos = lottoCashier.provideLottos();
 
         String printList = LottoPrinter.printLottoList(lottos);
         outputView.printLottoList(printList);
 
         return lottos;
-    }
-
-    private Lottos giveToLottoCashier(PurchaseAmount purchaseAmount){
-        LottoCashier lottoCashier = new LottoCashier(purchaseAmount);
-        reportLottoCount(lottoCashier.getTicketCount());
-        return lottoCashier.provideLottos();
     }
 
     private void reportLottoCount(int lottoCount){
