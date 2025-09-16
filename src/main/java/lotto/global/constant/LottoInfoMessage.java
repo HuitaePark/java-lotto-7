@@ -14,4 +14,9 @@ public enum LottoInfoMessage {
     public String getMessage(int value) {
         return String.format(this.message,value);
     }
+
+    @Override
+    public String toString() {
+        return message;
+    }
 }

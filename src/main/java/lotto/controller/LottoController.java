@@ -1,7 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.LottoCashier;
-import lotto.domain.LottoMachine;
+import lotto.domain.LottoPrinter;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseAmount;
 import lotto.ui.InputHandler;
@@ -17,15 +17,25 @@ public class LottoController {
         this.outputView = outputView;
     }
 
-    public void startLottery(){
+    public Lottos startLottery(){
+        outputView.printStartMessage();
+
         String input = inputHandler.inputText();
         PurchaseAmount purchaseAmount = new PurchaseAmount(input);
+        Lottos lottos = giveToLottoCashier(purchaseAmount);
 
-        giveToLottoCashier(purchaseAmount);
+        String printList = LottoPrinter.printLottoList(lottos);
+        outputView.printLottoList(printList);
+
+        return lottos;
     }
-    private void giveToLottoCashier(LottoMachine lottoMachine,PurchaseAmount purchaseAmount){
-        LottoCashier lottoCashier = new LottoCashier(lottoMachine,purchaseAmount);
+
+    private Lottos giveToLottoCashier(PurchaseAmount purchaseAmount){
+        LottoCashier lottoCashier = new LottoCashier(purchaseAmount);
+        reportLottoCount(lottoCashier.calculateLottoCount());
+        return lottoCashier.provideLottos();
     }
+
     private void reportLottoCount(int lottoCount){
         outputView.printLottoCount(lottoCount);
     }
