@@ -21,7 +21,7 @@ public class LottoController {
         outputView.printStartMessage();
 
         String input = inputHandler.inputText();
-        PurchaseAmount purchaseAmount = new PurchaseAmount(input);
+        PurchaseAmount purchaseAmount = PurchaseAmount.forInputElement(input);
         LottoCashier lottoCashier = LottoCashier.forPurchaseAmount(purchaseAmount);
         reportLottoCount(lottoCashier.getTicketCount());
 
