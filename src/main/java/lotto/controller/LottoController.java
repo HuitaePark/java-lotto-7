@@ -1,10 +1,10 @@
 package lotto.controller;
 
-import lotto.domain.LottoPrinter;
 import lotto.domain.Lottos;
 import lotto.dto.LottoPurchaseResult;
 import lotto.service.LottoService;
 import lotto.ui.InputHandler;
+import lotto.ui.LottoPrinter;
 import lotto.ui.OutputView;
 
 public class LottoController {
