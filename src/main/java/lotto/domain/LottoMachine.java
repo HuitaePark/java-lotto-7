@@ -1,12 +1,14 @@
 package lotto.domain;
 
+import static lotto.global.constant.LottoConstant.LOTTO_COUNT_NUMBER;
+import static lotto.global.constant.LottoConstant.LOTTO_END_NUMBER;
+import static lotto.global.constant.LottoConstant.LOTTO_START_NUMBER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import lotto.global.constant.LottoConstant.*;
 
 public class LottoMachine {
-    private final int ISSUANCE_START_NUMBER = 1;
-    private final int ISSUANCE_END_NUMBER = 45;
-    private final int ISSUANCE_COUNT_NUMBER = 6;
 
     public Lottos collectLotto(int count){
         Lottos lottos = new Lottos();
@@ -23,7 +25,7 @@ public class LottoMachine {
     }
 
     private List<Integer> drawing(){
-        return Randoms.pickUniqueNumbersInRange(ISSUANCE_START_NUMBER,ISSUANCE_END_NUMBER,ISSUANCE_COUNT_NUMBER);
+        return Randoms.pickUniqueNumbersInRange(LOTTO_START_NUMBER,LOTTO_END_NUMBER,LOTTO_COUNT_NUMBER);
     }
 
 }

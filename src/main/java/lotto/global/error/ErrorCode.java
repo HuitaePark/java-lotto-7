@@ -2,7 +2,10 @@ package lotto.global.error;
 
 public enum ErrorCode {
 
-    INVALID_PRICE("[ERROR] 유효하지 않은 구입 가격입니다.");
+    INVALID_LOTTO_SIZE("[ERROR] 로또 번호는 6개여야 합니다."),
+    DUPLICATE_LOTTO_NUMBER("[ERROR] 중복된 번호는 입력할수 없습니다."),
+    INVALID_LOTTO_RANGE("[ERROR] 로또 범위를 초과하였습니다."),
+    INVALID_DELIMITER("[ERROR] 로또 숫자는 쉼표로 구분해야 합니다.");
 
     private final String message;
 
