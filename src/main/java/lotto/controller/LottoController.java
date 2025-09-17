@@ -4,6 +4,7 @@ import lotto.domain.LottoCashier;
 import lotto.domain.LottoPrinter;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseAmount;
+import lotto.service.LottoService;
 import lotto.ui.InputHandler;
 import lotto.ui.OutputView;
 
@@ -11,10 +12,19 @@ public class LottoController {
 
     private final InputHandler inputHandler;
     private final OutputView outputView;
+    private final LottoService lottoService;
 
-    public LottoController(InputHandler inputHandler, OutputView outputView) {
+    private LottoController(InputHandler inputHandler, OutputView outputView,LottoService lottoService) {
         this.inputHandler = inputHandler;
         this.outputView = outputView;
+        this.lottoService = lottoService;
+    }
+
+    public static LottoController initializeController(){
+        InputHandler inputHandler = new InputHandler();
+        OutputView outputView = new OutputView();
+        LottoService lottoService = new LottoService();
+        return new LottoController(inputHandler,outputView,lottoService);
     }
 
     public Lottos buyLotteryTicket(){

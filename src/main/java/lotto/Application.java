@@ -7,11 +7,9 @@ import lotto.ui.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        InputHandler inputHandler = new InputHandler();
-        OutputView outputView = new OutputView();
-
-        LottoController lottoController = new LottoController(inputHandler,outputView);
+        LottoController lottoController = LottoController.initializeController();
         Lottos lottos = lottoController.buyLotteryTicket();
+
 
     }
 }
