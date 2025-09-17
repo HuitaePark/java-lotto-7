@@ -1,5 +1,8 @@
 package lotto.domain;
 
+import lotto.global.error.ErrorCode;
+import lotto.global.error.exception.PurchaseIllegalArgumentException;
+
 public class LottoCashier {
 
     private final PurchaseAmount purchaseAmount;
@@ -11,6 +14,7 @@ public class LottoCashier {
     }
 
     public static LottoCashier forPurchaseAmount(PurchaseAmount purchaseAmount){
+        validateDivisibleBy(purchaseAmount.getAmount());
         return new LottoCashier(purchaseAmount);
     }
 
@@ -23,8 +27,7 @@ public class LottoCashier {
     }
 
     private int calculateLottoCount(){
-        int amount = countPurchaseAmount(this.purchaseAmount);
-        return amount/1000;
+        return purchaseAmount.getAmount()/1000;
     }
 
     private Lottos getLotto(){
@@ -32,8 +35,10 @@ public class LottoCashier {
         return lottoMachine.collectLotto(calculateLottoCount());
     }
 
-    private int countPurchaseAmount(PurchaseAmount purchaseAmount){
-        return purchaseAmount.getAmount();
+    private static void validateDivisibleBy(int amount){
+        if(0 != amount%1000){
+            throw new PurchaseIllegalArgumentException(ErrorCode.INVALID_UNIT);
+        }
     }
 
 }

@@ -12,6 +12,7 @@ public class LottoPrinter {
 
     private static String formatSingleLotto(Lotto lotto) {
         return lotto.getNumbers().stream()
+                .sorted()
                 .map(String::valueOf)
                 .collect(Collectors.joining(", ", "[", "]"));
     }

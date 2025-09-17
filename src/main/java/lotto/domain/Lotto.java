@@ -41,7 +41,7 @@ public class Lotto {
 
     private void validateLottoRange(List<Integer> numbers){
         for(Integer i : numbers){
-            if(isInLottoRange(i)){
+            if(!isInLottoRange(i)){
                 throw new LottoIllegalArgumentException(ErrorCode. INVALID_LOTTO_RANGE);
             }
         }
