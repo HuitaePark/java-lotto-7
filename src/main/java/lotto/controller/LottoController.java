@@ -1,9 +1,8 @@
 package lotto.controller;
 
-import lotto.domain.LottoCashier;
 import lotto.domain.LottoPrinter;
 import lotto.domain.Lottos;
-import lotto.domain.PurchaseAmount;
+import lotto.dto.LottoPurchaseResult;
 import lotto.service.LottoService;
 import lotto.ui.InputHandler;
 import lotto.ui.OutputView;
@@ -31,12 +30,10 @@ public class LottoController {
         outputView.printStartMessage();
 
         String input = inputHandler.inputText();
-        PurchaseAmount purchaseAmount = PurchaseAmount.forInputElement(input);
-        LottoCashier lottoCashier = LottoCashier.forPurchaseAmount(purchaseAmount);
-        reportLottoCount(lottoCashier.getTicketCount());
+        LottoPurchaseResult result = lottoService.purchaseLottos(input);
+        reportLottoCount(result.count());
 
-        Lottos lottos = lottoCashier.provideLottos();
-
+        Lottos lottos = result.lottos();
         String printList = LottoPrinter.printLottoList(lottos);
         outputView.printLottoList(printList);
 
