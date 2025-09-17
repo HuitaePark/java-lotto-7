@@ -17,7 +17,7 @@ public class LottoController {
         this.outputView = outputView;
     }
 
-    public Lottos startLottery(){
+    public Lottos buyLotteryTicket(){
         outputView.printStartMessage();
 
         String input = inputHandler.inputText();
