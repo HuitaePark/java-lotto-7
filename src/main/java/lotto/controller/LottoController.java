@@ -20,7 +20,7 @@ public class LottoController {
         this.lottoService = lottoService;
     }
 
-    public static LottoController initializeController(){
+    public static LottoController createController(){
         InputHandler inputHandler = new InputHandler();
         OutputView outputView = new OutputView();
         LottoService lottoService = new LottoService();
