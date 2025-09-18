@@ -20,9 +20,9 @@ public class EntryValidator {
         validateLottoRange(entry);
     }
 
-    public static void validate(String[] numberArr){
-        validateLottoDistinct(numberArr);
-        validateEntrySize(numberArr);
+    public static void validate(String[] entryNumbers){
+        validateLottoDistinct(entryNumbers);
+        validateEntrySize(entryNumbers);
     }
 
     private static void validateLottoRange(String i){
@@ -49,13 +49,11 @@ public class EntryValidator {
 
     private static void validateLottoDistinct(String[] numberArr){
         String[] mapArr = distinctArr(numberArr);
-        if(mapArr.length!=LOTTO_COUNT_NUMBER){
-            throw new LottoIllegalArgumentException(INVALID_LOTTO_SIZE);
-        }
+        validateEntrySize(mapArr);
     }
 
-    private static void validateEntrySize(String[] numberArr) {
-        if(numberArr.length!=LOTTO_COUNT_NUMBER){
+    private static void validateEntrySize(String[] entryNumbers) {
+        if(entryNumbers.length!=LOTTO_COUNT_NUMBER){
             throw new LottoIllegalArgumentException(INVALID_LOTTO_SIZE);
         }
     }
@@ -63,4 +61,5 @@ public class EntryValidator {
     private static String[] distinctArr(String[] strArr){
         return Arrays.stream(strArr).distinct().toArray(String[]::new);
     }
+
 }
