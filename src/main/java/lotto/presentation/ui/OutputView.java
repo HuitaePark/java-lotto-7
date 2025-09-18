@@ -16,10 +16,12 @@ public class OutputView {
     }
 
     public void printEntryMessage(){
+        System.out.println();
         System.out.println(LottoInfoMessage.LOTTO_ENTRY_MESSAGE);
     }
 
     public void printBonusMessage(){
+        System.out.println();
         System.out.println(LottoInfoMessage.LOTTO_BONUS_MESSAGE);
     }
 }
