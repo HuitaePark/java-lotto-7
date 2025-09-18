@@ -54,7 +54,15 @@ public class LottoController {
         return lottoService.submitEntryNumbers(entryInput,bonusInput);
     }
 
-    public void viewWinningResult(Lottos lottos,SubmittedEntries submittedEntries){
+    public void viewWinningResult(Lottos lottos, SubmittedEntries submittedEntries){
+        outputView.printResultMessage();
+        StringBuilder statics = lottoService.getWinningResult(lottos,submittedEntries);
+        outputView.printWinningMessage(statics);
+
+        calculateYield();
+    }
+
+    private void calculateYield(){
 
     }
 

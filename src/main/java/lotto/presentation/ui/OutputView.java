@@ -1,5 +1,7 @@
 package lotto.presentation.ui;
 
+import lotto.domain.winning.Rank;
+
 public class OutputView {
 
     public void printStartMessage(){
@@ -23,5 +25,15 @@ public class OutputView {
     public void printBonusMessage(){
         System.out.println();
         System.out.println(LottoInfoMessage.LOTTO_BONUS_MESSAGE);
+    }
+
+    public void printResultMessage(){
+        System.out.println();
+        System.out.println(LottoInfoMessage.LOTTO_RESULT_MESSAGE);
+    }
+
+    public void printWinningMessage(StringBuilder statics){
+        System.out.println();
+        System.out.println(statics);
     }
 }
