@@ -1,11 +1,15 @@
-package lotto.controller;
+package lotto.presentation.controller;
 
-import lotto.domain.Lottos;
-import lotto.dto.LottoPurchaseResult;
-import lotto.service.LottoService;
-import lotto.ui.InputHandler;
-import lotto.ui.LottoPrinter;
-import lotto.ui.OutputView;
+import static lotto.presentation.adapter.StringConverter.convertStringArray;
+
+import lotto.application.dto.SubmittedEntries;
+import lotto.domain.purchase.Lottos;
+import lotto.application.dto.LottoPurchaseResult;
+import lotto.application.service.LottoService;
+import lotto.presentation.adapter.LottoPrinter;
+import lotto.presentation.ui.InputHandler;
+
+import lotto.presentation.ui.OutputView;
 
 public class LottoController {
 
@@ -38,6 +42,20 @@ public class LottoController {
         outputView.printLottoList(printList);
 
         return lottos;
+    }
+
+    public SubmittedEntries enterTheLottery(){
+        outputView.printEntryMessage();
+        String[] entryInput = convertStringArray(inputHandler.inputText());
+
+        outputView.printBonusMessage();
+        String bonusInput = inputHandler.inputText();
+
+        return lottoService.submitEntryNumbers(entryInput,bonusInput);
+    }
+
+    public void viewWinningResult(Lottos lottos,SubmittedEntries submittedEntries){
+
     }
 
     private void reportLottoCount(int lottoCount){

@@ -3,9 +3,9 @@ package lotto;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import lotto.domain.LottoCashier;
-import lotto.domain.Lottos;
-import lotto.domain.PurchaseAmount;
+import lotto.domain.purchase.LottoCashier;
+import lotto.domain.purchase.Lottos;
+import lotto.domain.purchase.PurchaseAmount;
 import org.junit.jupiter.api.Test;
 
 public class PurchaseTest {
@@ -21,7 +21,7 @@ public class PurchaseTest {
     @Test
     void 구입금액_성공_테스트() {
         PurchaseAmount purchaseAmount = PurchaseAmount.forInputElement("12000");
-        assertThat(purchaseAmount.getAmount()).isEqualTo(12000);
+        assertThat(purchaseAmount.amount()).isEqualTo(12000);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package lotto.global.constant;
+package lotto.domain.common;
 
 public class LottoConstant {
     public static final int LOTTO_START_NUMBER = 1;

@@ -1,6 +1,6 @@
-package lotto.dto;
+package lotto.application.dto;
 
-import lotto.domain.Lottos;
+import lotto.domain.purchase.Lottos;
 
 public record LottoPurchaseResult(
         Lottos lottos,

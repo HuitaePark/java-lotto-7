@@ -1,6 +1,4 @@
-package lotto.ui;
-
-import lotto.global.constant.LottoInfoMessage;
+package lotto.presentation.ui;
 
 public class OutputView {
 
@@ -17,4 +15,11 @@ public class OutputView {
         System.out.println(printList);
     }
 
+    public void printEntryMessage(){
+        System.out.println(LottoInfoMessage.LOTTO_ENTRY_MESSAGE);
+    }
+
+    public void printBonusMessage(){
+        System.out.println(LottoInfoMessage.LOTTO_BONUS_MESSAGE);
+    }
 }

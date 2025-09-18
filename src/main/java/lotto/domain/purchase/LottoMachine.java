@@ -1,12 +1,11 @@
-package lotto.domain;
+package lotto.domain.purchase;
 
-import static lotto.global.constant.LottoConstant.LOTTO_COUNT_NUMBER;
-import static lotto.global.constant.LottoConstant.LOTTO_END_NUMBER;
-import static lotto.global.constant.LottoConstant.LOTTO_START_NUMBER;
+import static lotto.domain.common.LottoConstant.LOTTO_COUNT_NUMBER;
+import static lotto.domain.common.LottoConstant.LOTTO_END_NUMBER;
+import static lotto.domain.common.LottoConstant.LOTTO_START_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import lotto.global.constant.LottoConstant.*;
 
 public class LottoMachine {
 

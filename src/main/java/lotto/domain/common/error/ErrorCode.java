@@ -1,4 +1,4 @@
-package lotto.global.error;
+package lotto.domain.common.error;
 
 public enum ErrorCode {
 
@@ -6,6 +6,8 @@ public enum ErrorCode {
     DUPLICATE_LOTTO_NUMBER("[ERROR] 중복된 번호는 입력할수 없습니다."),
     INVALID_LOTTO_RANGE("[ERROR] 로또 범위를 초과하였습니다."),
     INVALID_DELIMITER("[ERROR] 로또 숫자는 쉼표로 구분해야 합니다."),
+    INVALID_STRING("[ERROR] 로또는 숫자를 입력해야 합니다."),
+    INVALID_EMPTY("[ERROR] 공백을 입력할순 없습니다."),
 
     INVALID_PURCHASE_AMOUNT("[ERROR] 구입 금액은 숫자를 입력해야 합니다."),
     INVALID_UNIT("[ERROR] 구입 금액은 1000단위로 입력해야 합니다.");

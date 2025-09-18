@@ -1,7 +1,7 @@
-package lotto.domain;
+package lotto.domain.purchase;
 
-import lotto.global.error.ErrorCode;
-import lotto.global.error.exception.PurchaseIllegalArgumentException;
+import lotto.domain.common.error.ErrorCode;
+import lotto.domain.common.error.exception.PurchaseIllegalArgumentException;
 
 public class LottoCashier {
 
@@ -14,7 +14,7 @@ public class LottoCashier {
     }
 
     public static LottoCashier forPurchaseAmount(PurchaseAmount purchaseAmount){
-        validateDivisibleBy(purchaseAmount.getAmount());
+        validateDivisibleBy(purchaseAmount.amount());
         return new LottoCashier(purchaseAmount);
     }
 
@@ -27,7 +27,7 @@ public class LottoCashier {
     }
 
     private int calculateLottoCount(){
-        return purchaseAmount.getAmount()/1000;
+        return purchaseAmount.amount()/1000;
     }
 
     private Lottos getLotto(){

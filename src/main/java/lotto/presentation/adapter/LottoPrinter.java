@@ -1,8 +1,8 @@
-package lotto.ui;
+package lotto.presentation.adapter;
 
 import java.util.stream.Collectors;
-import lotto.domain.Lotto;
-import lotto.domain.Lottos;
+import lotto.domain.purchase.Lotto;
+import lotto.domain.purchase.Lottos;
 
 public class LottoPrinter {
 
