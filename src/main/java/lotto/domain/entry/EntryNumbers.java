@@ -6,6 +6,7 @@ import static lotto.domain.common.error.ErrorCode.INVALID_LOTTO_SIZE;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lotto.domain.common.EntryValidator;
 import lotto.domain.common.error.exception.LottoIllegalArgumentException;
 
 public class EntryNumbers {
@@ -19,7 +20,7 @@ public class EntryNumbers {
     }
 
     public static EntryNumbers entry(String[] numberArr,String entryBonusNumber){
-        validate(numberArr);
+        EntryValidator.validate(numberArr);
         List<EntryNumber> entryNumbers = new ArrayList<>();
 
         for(String entry : numberArr){
@@ -39,25 +40,4 @@ public class EntryNumbers {
         return entryNumbers;
     }
 
-    private static void validate(String[] numberArr){
-        validateLottoDistinct(numberArr);
-        validateEntrySize(numberArr);
-    }
-
-    private static void validateLottoDistinct(String[] numberArr){
-        String[] mapArr = distinctArr(numberArr);
-        if(mapArr.length!=LOTTO_COUNT_NUMBER){
-            throw new LottoIllegalArgumentException(INVALID_LOTTO_SIZE);
-        }
-    }
-
-    private static void validateEntrySize(String[] numberArr) {
-        if(numberArr.length!=LOTTO_COUNT_NUMBER){
-            throw new LottoIllegalArgumentException(INVALID_LOTTO_SIZE);
-        }
-    }
-
-    private static String[] distinctArr(String[] strArr){
-        return Arrays.stream(strArr).distinct().toArray(String[]::new);
-    }
 }
