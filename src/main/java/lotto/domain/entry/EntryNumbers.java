@@ -1,13 +1,8 @@
 package lotto.domain.entry;
 
-import static lotto.domain.common.LottoConstant.LOTTO_COUNT_NUMBER;
-import static lotto.domain.common.error.ErrorCode.INVALID_LOTTO_SIZE;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import lotto.domain.common.EntryValidator;
-import lotto.domain.common.error.exception.LottoIllegalArgumentException;
 
 public class EntryNumbers {
 
