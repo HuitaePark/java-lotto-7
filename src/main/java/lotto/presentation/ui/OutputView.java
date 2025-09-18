@@ -33,7 +33,6 @@ public class OutputView {
     }
 
     public void printWinningMessage(StringBuilder statics){
-        System.out.println();
         System.out.println(statics);
     }
 }

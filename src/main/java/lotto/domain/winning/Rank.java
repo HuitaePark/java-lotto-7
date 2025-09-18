@@ -1,6 +1,7 @@
 package lotto.domain.winning;
 
 import java.util.Arrays;
+import java.util.EnumMap;
 
 public enum Rank {
 
@@ -29,6 +30,17 @@ public enum Rank {
                 .findFirst()
                 .orElse(MISS);
     }
+
+    public static EnumMap<Rank,Integer> initialize() {
+        EnumMap<Rank,Integer> rankMap = new EnumMap<>(Rank.class);
+
+        for (Rank rank : Rank.values()) {
+            rankMap.put(rank, 0); // 초기 디폴트값 0
+        }
+
+        return rankMap;
+    }
+
 
 
     public String getMessage(int count) {
