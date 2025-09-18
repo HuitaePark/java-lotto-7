@@ -1,5 +1,6 @@
 package lotto.application.service;
 
+import lotto.application.dto.LottoWinningResult;
 import lotto.application.dto.SubmittedEntries;
 import lotto.domain.entry.EntryNumbers;
 import lotto.domain.purchase.LottoCashier;
@@ -22,7 +23,7 @@ public class LottoService {
         return new SubmittedEntries(entryNumbers.getEntryNumbers(),entryNumbers.getBonusNumber());
     }
 
-    public StringBuilder getWinningResult(Lottos lottos, SubmittedEntries submittedEntries) {
+    public LottoWinningResult getWinningResult(Lottos lottos, SubmittedEntries submittedEntries) {
         LottoBanker lottoBanker = new LottoBanker(lottos,submittedEntries);
         return lottoBanker.settlingWinnings();
     }

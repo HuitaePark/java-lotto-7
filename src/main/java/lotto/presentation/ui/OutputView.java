@@ -35,4 +35,8 @@ public class OutputView {
     public void printWinningMessage(StringBuilder statics){
         System.out.println(statics);
     }
+
+    public void printCalculateMessage(double percent){
+        System.out.print(LottoInfoMessage.LOTTO_CALCULATE_MESSAGE.getMessage(percent));
+    }
 }

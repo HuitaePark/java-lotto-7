@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import lotto.application.dto.LottoWinningResult;
 import lotto.application.dto.SubmittedEntries;
 import lotto.domain.entry.BonusNumber;
 import lotto.domain.entry.EntryNumber;
@@ -31,7 +29,7 @@ public class LottoBanker {
         this.quantity = this.lottos.size();
     }
 
-    public StringBuilder settlingWinnings(){
+    public LottoWinningResult settlingWinnings(){
         List<Rank> winningList = new ArrayList<>();
 
         for(Lotto lotto : lottos){
@@ -50,11 +48,10 @@ public class LottoBanker {
             winningList.add(Rank.of(count,false));
         }
 
-
         return calculateRank(winningList);
     }
 
-    private StringBuilder calculateRank(List<Rank> winningList){
+    private  LottoWinningResult calculateRank(List<Rank> winningList){
         StringBuilder rankResult = new StringBuilder();
         EnumMap<Rank,Integer> rankGroup = Rank.initialize();
 
@@ -69,7 +66,15 @@ public class LottoBanker {
                 rankResult.append(rank.getMessage(Math.toIntExact(rankGroup.get(rank)))).append(System.lineSeparator());
             }
         });
+        rankResult.delete(rankResult.length() - System.lineSeparator().length(), rankResult.length());
 
-        return rankResult;
+
+        long sum = rankGroup.entrySet().stream()
+                .mapToLong(e -> e.getKey().getPrize() * e.getValue())
+                .sum();
+        double percent = (double) sum /(quantity*1000)*100;
+
+
+        return new  LottoWinningResult(rankResult,percent);
     }
 }

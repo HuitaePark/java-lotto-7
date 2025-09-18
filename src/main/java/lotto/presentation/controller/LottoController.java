@@ -2,6 +2,7 @@ package lotto.presentation.controller;
 
 import static lotto.presentation.adapter.StringConverter.convertStringArray;
 
+import lotto.application.dto.LottoWinningResult;
 import lotto.application.dto.SubmittedEntries;
 import lotto.domain.purchase.Lottos;
 import lotto.application.dto.LottoPurchaseResult;
@@ -56,14 +57,14 @@ public class LottoController {
 
     public void viewWinningResult(Lottos lottos, SubmittedEntries submittedEntries){
         outputView.printResultMessage();
-        StringBuilder statics = lottoService.getWinningResult(lottos,submittedEntries);
-        outputView.printWinningMessage(statics);
+        LottoWinningResult statics = lottoService.getWinningResult(lottos,submittedEntries);
+        outputView.printWinningMessage(statics.resultText());
 
-        calculateYield();
+        calculateYield(statics.percent());
     }
 
-    private void calculateYield(){
-
+    private void calculateYield(double percent){
+        outputView.printCalculateMessage(percent);
     }
 
     private void reportLottoCount(int lottoCount){

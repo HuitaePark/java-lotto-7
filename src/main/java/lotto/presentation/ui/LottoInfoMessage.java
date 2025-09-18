@@ -6,7 +6,8 @@ public enum LottoInfoMessage {
     LOTTO_PURCHASED_MESSAGE("%d개를 구매했습니다."),
     LOTTO_ENTRY_MESSAGE("당첨 번호를 입력해 주세요."),
     LOTTO_BONUS_MESSAGE("보너스 번호를 입력해 주세요."),
-    LOTTO_RESULT_MESSAGE("당첨 통계" + System.lineSeparator() + "---");
+    LOTTO_RESULT_MESSAGE("당첨 통계" + System.lineSeparator() + "---"),
+    LOTTO_CALCULATE_MESSAGE("총 수익률은 %.1f%%입니다.");
 
     private final String message;
 
@@ -15,6 +16,10 @@ public enum LottoInfoMessage {
     }
 
     public String getMessage(int value) {
+        return String.format(this.message,value);
+    }
+
+    public String getMessage(double value) {
         return String.format(this.message,value);
     }
 
