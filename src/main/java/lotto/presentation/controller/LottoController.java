@@ -32,10 +32,7 @@ public class LottoController {
     }
 
     public Lottos buyLotteryTicket(){
-        outputView.printStartMessage();
-
-        String input = inputHandler.inputText();
-        LottoPurchaseResult result = lottoService.purchaseLottos(input);
+        LottoPurchaseResult result = inputPurchaseLottos();
         reportLottoCount(result.count());
 
         Lottos lottos = result.lottos();
@@ -45,14 +42,47 @@ public class LottoController {
         return lottos;
     }
 
+    private LottoPurchaseResult inputPurchaseLottos(){
+        outputView.printStartMessage();
+        while(true) {
+            try {
+                String input = inputHandler.inputText();
+                return lottoService.purchaseLottos(input);
+            }catch (IllegalArgumentException exception){
+                outputView.printErrorMessage(exception);
+            }
+        }
+    }
+
     public SubmittedEntries enterTheLottery(){
+        String[] entryInput = inputEntrys();
+        SubmittedEntries submittedEntries = inputBonus(entryInput);
+
+        return submittedEntries;
+    }
+
+    private String[] inputEntrys(){
         outputView.printEntryMessage();
-        String[] entryInput = convertStringArray(inputHandler.inputText());
+        while(true) {
+            try {
+                String input = inputHandler.inputText();
+                return convertStringArray(input);
+            }catch (IllegalArgumentException exception){
+                outputView.printErrorMessage(exception);
+            }
+        }
+    }
 
+    private SubmittedEntries inputBonus(String[] entryInput){
         outputView.printBonusMessage();
-        String bonusInput = inputHandler.inputText();
-
-        return lottoService.submitEntryNumbers(entryInput,bonusInput);
+        while(true) {
+            try {
+                String bonusInput = inputHandler.inputText();
+                return lottoService.submitEntryNumbers(entryInput,bonusInput);
+            }catch (IllegalArgumentException exception){
+                outputView.printErrorMessage(exception);
+            }
+        }
     }
 
     public void viewWinningResult(Lottos lottos, SubmittedEntries submittedEntries){
@@ -61,6 +91,7 @@ public class LottoController {
         outputView.printWinningMessage(statics.resultText());
 
         calculateYield(statics.percent());
+        inputHandler.inputClose();
     }
 
     private void calculateYield(double percent){

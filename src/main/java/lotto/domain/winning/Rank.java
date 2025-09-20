@@ -41,8 +41,6 @@ public enum Rank {
         return rankMap;
     }
 
-
-
     public String getMessage(int count) {
         return String.format(messageFormat, String.format("%,d", prize), count);
     }

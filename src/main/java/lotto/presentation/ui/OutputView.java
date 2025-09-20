@@ -39,4 +39,8 @@ public class OutputView {
     public void printCalculateMessage(double percent){
         System.out.print(LottoInfoMessage.LOTTO_CALCULATE_MESSAGE.getMessage(percent));
     }
+
+    public void printErrorMessage(IllegalArgumentException e){
+        System.out.println(e);
+    }
 }
