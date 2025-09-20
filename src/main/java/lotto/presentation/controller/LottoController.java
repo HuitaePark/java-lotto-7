@@ -43,9 +43,9 @@ public class LottoController {
     }
 
     private LottoPurchaseResult inputPurchaseLottos(){
-        outputView.printStartMessage();
         while(true) {
             try {
+                outputView.printStartMessage();
                 String input = inputHandler.inputText();
                 return lottoService.purchaseLottos(input);
             }catch (IllegalArgumentException exception){
@@ -62,9 +62,9 @@ public class LottoController {
     }
 
     private String[] inputEntrys(){
-        outputView.printEntryMessage();
         while(true) {
             try {
+                outputView.printEntryMessage();
                 String input = inputHandler.inputText();
                 return convertStringArray(input);
             }catch (IllegalArgumentException exception){
@@ -74,9 +74,9 @@ public class LottoController {
     }
 
     private SubmittedEntries inputBonus(String[] entryInput){
-        outputView.printBonusMessage();
         while(true) {
             try {
+                outputView.printBonusMessage();
                 String bonusInput = inputHandler.inputText();
                 return lottoService.submitEntryNumbers(entryInput,bonusInput);
             }catch (IllegalArgumentException exception){
