@@ -30,14 +30,14 @@
     - [x] 소수점 둘째 자리에서 반올림한다 (소수 첫째 자리까지만 보여줌)
 
 ### ☑️ 체크리스트
-- [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-- [ ] 3항 연산자를 쓰지 않는다.
-- [ ] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
-- [ ] 함수(또는 메서드)의 길이가 15라인을 넘어가지 않도록 구현한다.
-- [ ] 함수(또는 메서드)가 한 가지 일만 잘 하도록 구현한다.
-- [ ] else 예약어를 쓰지 않는다.
-- [ ] Java Enum을 적용하여 프로그램을 구현한다.
-- [ ] 구현한 기능에 대한 단위 테스트를 작성한다. 단, UI(System.out, System.in, Scanner) 로직은 제외한다.
-- [ ] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
-- [ ] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickUniqueNumbersInRange()를 활용한다.
-- [ ] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+- [x] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
+- [x] 3항 연산자를 쓰지 않는다.
+- [x] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+- [x] 함수(또는 메서드)의 길이가 15라인을 넘어가지 않도록 구현한다.
+- [x] 함수(또는 메서드)가 한 가지 일만 잘 하도록 구현한다.
+- [x] else 예약어를 쓰지 않는다.
+- [x] Java Enum을 적용하여 프로그램을 구현한다.
+- [x] 구현한 기능에 대한 단위 테스트를 작성한다. 단, UI(System.out, System.in, Scanner) 로직은 제외한다.
+- [x] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
+- [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickUniqueNumbersInRange()를 활용한다.
+- [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
