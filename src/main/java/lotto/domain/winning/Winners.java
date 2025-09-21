@@ -1,5 +1,6 @@
 package lotto.domain.winning;
 
+import static java.util.Collections.unmodifiableList;
 import static lotto.domain.common.LottoConstant.SECOND_RANK_NUMBER;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Winners {
     }
 
     public List<Winner> getWinningList() {
-        return winningList;
+        return unmodifiableList(winningList);
     }
 
     private List<Winner> settlingWinnings(List<Lotto> lottos) {

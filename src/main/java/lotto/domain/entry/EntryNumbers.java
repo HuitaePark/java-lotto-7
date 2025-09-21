@@ -1,5 +1,7 @@
 package lotto.domain.entry;
 
+import static java.util.Collections.unmodifiableList;
+
 import java.util.ArrayList;
 import java.util.List;
 import lotto.domain.common.EntryValidator;
@@ -32,7 +34,7 @@ public class EntryNumbers {
     }
 
     public List<EntryNumber> getEntryNumbers() {
-        return entryNumbers;
+        return unmodifiableList(entryNumbers);
     }
 
 }
