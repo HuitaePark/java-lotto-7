@@ -13,8 +13,8 @@ public class LottoBanker {
     private final Winners winners;
 
     public LottoBanker(Lottos lottos, SubmittedEntries submittedEntries) {
-        this.lottos = lottos.getLottos();
-        this.winners = new Winners(submittedEntries,lottos.getLottos());
+        this.lottos = lottos.getLotto();
+        this.winners = new Winners(submittedEntries,lottos.getLotto());
         this.quantity = this. lottos.size();
     }
 

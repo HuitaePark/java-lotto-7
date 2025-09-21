@@ -7,11 +7,11 @@ public class Lottos {
 
     private final List<Lotto> lottos = new ArrayList<>();
 
-    public List<Lotto> getLottos() {
+    public List<Lotto> getLotto() {
         return lottos;
     }
 
-    public void addLottos(Lotto lotto){
+    public void addLotto(Lotto lotto){
         this.lottos.add(lotto);
     }
 }

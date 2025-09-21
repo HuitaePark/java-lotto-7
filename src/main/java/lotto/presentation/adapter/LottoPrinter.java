@@ -7,7 +7,7 @@ import lotto.domain.purchase.Lottos;
 public class LottoPrinter {
 
     public static String printLottoList(Lottos lottos) {
-        return lottos.getLottos().stream()
+        return lottos.getLotto().stream()
                 .map(LottoPrinter::formatSingleLotto)
                 .collect(Collectors.joining(System.lineSeparator()));
     }

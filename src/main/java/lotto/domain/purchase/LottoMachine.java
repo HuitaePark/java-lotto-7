@@ -13,7 +13,7 @@ public class LottoMachine {
         Lottos lottos = new Lottos();
 
         for(int i = 0;i<count;i++){
-            lottos.addLottos(issuanceLotto());
+            lottos.addLotto(issuanceLotto());
         }
 
         return lottos;
